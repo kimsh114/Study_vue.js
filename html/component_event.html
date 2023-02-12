@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'> 
+        <child-com v-on:show-log="printText"></child-com> 
+ <!--3번-->
+    </div>
+    <div id = 'test'>
+        <test-com v-on:test-log="testPrint"></test-com>
+        <!-- c. test-log이벤트는 어떤 이벤트냐면 부모컴포넌트에서 testPrint라는 메소드를 받아오는 이벤트야
+        이 소식을 부모컴포넌트한테 전달해야겠어.(b에서 전달을 받아서 v-on:)-->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src = '../js/component_event.js'></script>
+</body>
+</html>

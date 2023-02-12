@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue.js sample</title>
+</head>
+<body>
+    <div class="i"> 
+        <!-- 인스턴스의 유효 범위는 이 div테그 안이다. -->
+        <button>
+            컴포넌트 등록
+        </button>
+        <my></my> 
+        <!-- 전역 컴포넌트 만드는 법// 테그의 이름을 작성함. -->
+        <you></you>
+        <my-local-component></my-local-component>
+    </div >
+ 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js">  
+    // 뷰 라이브러리 로딩
+    </script>
+<script>
+ 
+ Vue.component('my',{
+    template: '<div> 마이 전역 컴포넌트. </div>'
+}); // 전역 컴포넌트를 사용하는 방법 => Vue.component('컴포넌트 이름', { 컴포넌트에 들어갈 내용})// 여기서 내용은 template 속성으로 정의함.
+
+Vue.component('you',{
+    template: '<button> 너의 전역 컴포넌트</button>'
+})
+
+var cmp = {
+    template: '<div> 마이 지역 컴포넌트. </div>' // template 말고도 methods, data등 여러 속성이 들어갈 수 있다.
+}; //화면에 나타날 지역 컴포넌트를 정의함.
+
+
+
+    // 뷰 인스턴스를 만드는 과정
+    // 뷰 인스턴스는 뷰로 화면을 개발하기 위해 필수적으로 생성해야 하는 기본 단위이다.
+    // new vue()가 뷰 인스턴스가 된다. => new Vue 에서 Vue는 생성자이다. 뷰 라이브러리를 로딩하고 나면 접근이 가능하다.
+    new Vue({
+        el:'.i', 
+// el 속성 => 뷰 인스턴스로 화면을 렌더링할 때 화면이 그려질 위치의 돔 요소를 지정( css 선택자 규칙과 같음//한 마디로 div 안이 id이면 # 해당 id, class 이면 . 해당 class)
+        // data: { // data 속성
+        //     message: '뷰와 장고는 잘 어울릴까요?'
+        // },
+        // beforeCreate: function() {
+        //     console.log('beforeCreate');
+        // },
+        // created: function() {
+        //     console.log('created');
+        // },
+        // mounted: function() {
+        //     console.log('mounted');
+        //     this.message = 'hello vue';
+        // },
+        // updated: function() {
+        //     console.log('updated');
+        // }
+
+
+
+        components: {
+            'my-local-component':cmp
+        }
+    });
+    //  뷰 인스턴스에 정의된 데이터 객체의 메시지 프로퍼티를 화면에 출력
+    // beforeCreate, created, beforemounted,mounted, beforeupdated, updated, beforedestroy, destroy => 뷰 인스턴스의 라이프 사이클이다. 
+  
+ 
+</script>
+</body>
+</html>

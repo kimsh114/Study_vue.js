@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = 'app'> 
+        <!-- 여기서 부모 컴포넌트는 이 div안의 app이다. -->
+        <!-- 4번 -->
+    <child-com v-bind:propsdata = 'message'></child-com> 
+    <!-- propsdata=> props 속성의 이름, 'message' => 상위 컴포넌트의 데이터 속성 -->
+    <!--상위 컴포넌트의 HTML코드에 등록된 테그에 v-bind 속성을 지정. -->
+    <test-com v-bind:dd = 'message1'></test-com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src = '../js/component_props.js'></script>
+</body>
+</html>
